@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: larger;
+            font-weight: lighter;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        li {
+            list-style-type: none;
+            margin-top: 10px;
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .navbar {
+            background-color: #937e61;
+            width: 100%;
+            height: 80px;
+            align-items: center;
+
+        }
+
+        .respostas {
+            display: flex;
+            flex-direction: row;
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 5px;
+            color: rgb(0, 0, 0);
+            width: 150px;
+            height: 20px;
+            font-weight: 500;
+        }
+
+        .box {
+            background-color: #937e61;
+            width: 60%;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 50px;
+        }
+
+        .boxResp {
+            display: flex;
+            justify-content: space-around;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .boxes {
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            font-size: medium;
+            border-radius: 8px;
+            border: 1px solid #000;
+            align-self: center;
+            margin-top: 22px;
+            background-color: rgb(255, 255, 255);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button:hover {
+            width: 100px;
+            height: 30px;
+            font-size: medium;
+            border-radius: 8px;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            align-self: center;
+            margin-top: 22px;
+            background-color: #a28e75;
+
+        }
+
+        .container {
+            background-color:#FDF6ED;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            width: 400px;
+            height: 30px;
+            font-size: medium;
+            border-radius: 8px;
+            border: 1px solid #000;
+            align-self: center;
+            background-color: #FDF6ED;
+            margin-bottom: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        p {
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            font-size: 30px;
+            text-align: center;
+            height: 70px;
+            font-weight: normal;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .footer {
+            background-color:#937e61;
+            width: 100%;
+            height: 200px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .nomes {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+
+        }
+
+        .turma {
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: lighter;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="navbar">
+
+            <ul>
+                <li><a href="#1">DECIMAL</a></li>
+                <li><a href="#2">OCTAL</a></li>
+                <li><a href="#3">HEXADECIMAL</a></li>
+                <li><a href="#4">BINÁRIO</a></li>
+
+            </ul>
+
+        </div>
+
+
+        <div id="1" class="box">
+            <h1>Decimal</h1>
+            <input id="decimal_d" type="text" placeholder="Digite o valor em decimal">
+
+
+
+            <div class="boxResp">
+
+                <div class="boxes">
+                    <p>Octal</p>
+                    <div class="respostas" id="decimal_oct"></div>
+                </div>
+
+                <div class="boxes">
+                    <p>Hexadecimal</p>
+                    <div class="respostas" id="decimal_hexa"></div>
+                </div>
+
+                <div class="boxes">
+                    <p>Binário</p>
+                    <div class="respostas" id="decimal_bin"> </div>
+                </div>
+
+            </div>
+            <button onclick="converter_D()">Converter</button>
+        </div>
+        <!-- OCTAL -->
+
+        <div id="2" class="box">
+            <h1>Octal</h1>
+            <input id="octal_o" type="text" placeholder="Digite o valor em octal">
+
+
+
+            <div class="boxResp">
+
+                <div class="boxes">
+                    <p>Decimal</p>
+                    <div class="respostas" id="octal_dec"></div>
+                </div>
+
+                <div class="boxes">
+                    <p>Hexadecimal</p>
+                    <div class="respostas" id="octal_hexa"></div>
+                </div>
+
+                <div class="boxes">
+                    <p>Binário</p>
+                    <div class="respostas" id="octal_bin"></div>
+                </div>
+
+            </div>
+            <button onclick="converter_O()">Converter</button>
+        </div>
+
+        <!-- HEXADECIMAL -->
+
+        <div id="3" class="box">
+            <h1>Hexadecimal</h1>
+            <input id="hexa_h" type="text" placeholder="Digite o valor em octal">
+
+            <div class="boxResp">
+
+                <div class="boxes">
+                    <p>Decimal</p>
+                    <div class="respostas" id="hexa_dec"></div>
+                </div>
+
+                <div class="boxes">
+                    <p>Octal</p>
+                    <div class="respostas" id="hexa_oct"></div>
+                </div>
+
+                <div class="boxes">
+                    <p>Binário</p>
+                    <div class="respostas" id="hexa_bin"></div>
+                </div>
+
+            </div>
+
+            <button onclick="converter_H()">Converter</button>
+        </div>
+
+        <!-- BINARIO -->
+
+        <div id="4" class="box">
+            <h1>Binário</h1>
+            <input id="binaria_b" type="text" placeholder="Digite o valor em octal">
+
+            <div class="boxResp">
+
+                <div class="boxes">
+                    <p>Decimal</p>
+                    <div class="respostas" id="binaria_dec"></div>
+                </div>
+
+                <div class="boxes">
+                    <p>Octal</p>
+                    <div class="respostas" id="binaria_oct"></div>
+                </div>
+
+                <div class="boxes">
+                    <p>Hexadecimal</p>
+                    <div class="respostas" id="binaria_hexa"></div>
+                </div>
+
+            </div>
+
+            <button onclick="converter_B()">Converter</button>
+        </div>
+
+        <div class="footer">
+            <div class="nomes">
+                <h2>Julia Araujo RA:03241071</h2>
+                <h2>Kevelly Mendes de Oliveira RA:03241071</h2>
+            </div>
+
+            <div class="turma">
+                <h2> 1° Semestre de Sistemas da Informação</h2>
+                <h2> Arquitetura Computacional</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function converter_D() {
+            var decimal = Number(decimal_d.value);
+
+            let octal = decimal.toString(8);
+            let hexadecimal = decimal.toString(16);
+            let binaria = decimal.toString(2);
+
+            console.log(decimal);
+            console.log(octal);
+            console.log(hexadecimal);
+            console.log(binaria);
+
+            document.getElementById("decimal_d").innerHTML = ` ${decimal}`;
+            document.getElementById("decimal_oct").innerHTML = ` ${octal}`;
+            document.getElementById("decimal_hexa").innerHTML = ` ${hexadecimal}`;
+            document.getElementById("decimal_bin").innerHTML = ` ${binaria}`;
+        }
+
+        function converter_O() {
+            var octal = Number(octal_o.value);
+            octal = parseInt(octal, 8);
+
+            let decimal = octal.toString(10);
+            let hexadecimal = octal.toString(16);
+            let binaria = octal.toString(2);
+
+            console.log(decimal);
+            console.log(octal);
+            console.log(hexadecimal);
+            console.log(binaria);
+
+            document.getElementById("octal_dec").innerHTML = ` ${decimal}`;
+            document.getElementById("octal_o").innerHTML = ` ${octal}`;
+            document.getElementById("octal_hexa").innerHTML = ` ${hexadecimal}`;
+            document.getElementById("octal_bin").innerHTML = ` ${binaria}`;
+        }
+
+
+        function converter_H() {
+            var hexadecimal = hexa_h.value;
+            hexadecimal = parseInt(hexadecimal, 16);
+
+            let decimal = hexadecimal.toString(10);
+            let octal = hexadecimal.toString(8);
+            let binaria = hexadecimal.toString(2);
+
+            console.log(decimal);
+            console.log(octal);
+            console.log(hexadecimal);
+            console.log(binaria);
+
+            document.getElementById("hexa_dec").innerHTML = ` ${decimal}`;
+            document.getElementById("hexa_oct").innerHTML = ` ${octal}`;
+            document.getElementById("hexa_h").innerHTML = ` ${hexadecimal}`;
+            document.getElementById("hexa_bin").innerHTML = ` ${binaria}`;
+        }
+
+        function converter_B() {
+            var binaria = Number(binaria_b.value);
+            binaria = parseInt(binaria, 2);
+
+            let hexadecimal = binaria.toString(16);
+            let decimal = binaria.toString(10);
+            let octal = binaria.toString(8);
+
+            console.log(decimal);
+            console.log(octal);
+            console.log(hexadecimal);
+            console.log(binaria);
+
+            document.getElementById("binaria_dec").innerHTML = ` ${decimal}`;
+            document.getElementById("binaria_oct").innerHTML = ` ${octal}`;
+            document.getElementById("binaria_hexa").innerHTML = ` ${hexadecimal}`;
+            document.getElementById("binaria_b").innerHTML = ` ${binaria}`;
+        }
+    </script>
+</body>
+
+</html>
